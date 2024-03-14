@@ -1,10 +1,16 @@
 import { set } from "express/lib/application";
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Header=()=>{
 
     const [btnNameReact,setbtnNameReact]=useState("Login"); 
+    console.log("header rendered");
+
+    //useEffect
+    useEffect(()=>{
+        console.log("useEffect called");
+    },[btnNameReact]);
 
     return (
         <div className="header">

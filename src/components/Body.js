@@ -2,6 +2,7 @@ import RestaurentCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import { resList } from "../utils/mockData";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   // Local State Variable - Super powerful variable
@@ -56,10 +57,10 @@ const Body = () => {
       <div className="res-container">
         {Array.isArray(listOfRestaurants) ? (
           filteredRestraunt.map((restaurant) => (
-            <RestaurentCard
+            <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}><RestaurentCard
               key={restaurant.info.id}
               resData={restaurant}
-            />
+            /></Link>
           ))
         ) : (
           <div>No data available</div>
